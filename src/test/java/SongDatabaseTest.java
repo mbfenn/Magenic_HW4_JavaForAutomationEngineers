@@ -19,6 +19,12 @@ public class SongDatabaseTest {
     public void testAddDeleteSong() {
         // TODO FOR HOMEWORK: Write a test for both adding and deleting songs from a song database
         SongDatabase database = new SongDatabase();
+        Song newSong = new Song("Weird Autumn", "Alec Holowka");
+        database.addSong(newSong);
+        Assert.assertFalse(database.findSongByName(newSong.getName()).isEmpty());
+
+        database.deleteSong(newSong);
+        Assert.assertTrue(database.findSongByName(newSong.getName()).isEmpty());
     }
 
     /**
@@ -29,6 +35,14 @@ public class SongDatabaseTest {
     public void testAddGetDeletePlaylist() {
         // TODO FOR HOMEWORK: Write a test for both adding and deleting playlists from a song database
         SongDatabase database = new SongDatabase();
+        String playlistName = "Test Playlist";
+        Song testSong = new Song ("Test", "Song");
+        database.addSongToPlaylist(testSong, playlistName);
+        Assert.assertFalse(database.getPlaylist(playlistName).isEmpty());
+
+        database.deletePlaylist(playlistName);
+        Assert.assertNull(database.getPlaylist(playlistName));
+
     }
 
     /**

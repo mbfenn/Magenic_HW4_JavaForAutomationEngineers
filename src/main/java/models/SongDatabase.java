@@ -71,6 +71,9 @@ public class SongDatabase {
      */
     public void addSong(Song newSong) {
         // TODO FOR HOMEWORK: Add the given song to the song archive
+        if (!songArchive.contains((newSong))) {
+            songArchive.add(newSong);
+        }
     }
 
     /**
@@ -118,6 +121,7 @@ public class SongDatabase {
         // Checks if the playlists already has a key for the given playlist name
         if (playlists.containsKey(playlistName)) {
             // TODO FOR HOMEWORK: Throw the IllegalArgumentException with a custom message
+            throw new IllegalArgumentException("A playlist with that name already exists!");
         }
 
         // Puts the playlist name into the playlists and maps it to a new empty list of songs
@@ -132,9 +136,12 @@ public class SongDatabase {
      */
     public List<Song> getPlaylist(String playlistName) {
         // TODO FOR HOMEWORK: Add the conditional for returning the playlist
-
-        // Returns null if no songs are found for the given playlist name
-        return null;
+        if(playlists.containsKey(playlistName)) {
+            return playlists.get(playlistName);
+        } else {
+            // Returns null if no songs are found for the given playlist name
+            return null;
+        }
     }
 
     /**
@@ -160,6 +167,13 @@ public class SongDatabase {
      */
     public void addSongToPlaylist(Song newSong, String playlistName) {
         // TODO FOR HOMEWORK: Add the given song to the playlist of the given name
+        if (!songArchive.contains(newSong)) {
+            songArchive.add(newSong);
+        }
+        if (!playlists.containsKey(playlistName)) {
+            createPlaylist(playlistName);
+        }
+        playlists.get(playlistName).add(newSong);
     }
 
     /**
@@ -199,7 +213,13 @@ public class SongDatabase {
      */
     public List<Song> findSongByName(String songName) {
         // TODO FOR HOMEWORK: Remove the line below, and return a list of songs that match the given song name
-        return null;
+        List<Song> resultList = new ArrayList<>();
+        for (Song current : songArchive) {
+            if (current.getName().equals(songName)) {
+                resultList.add(current);
+            }
+        }
+        return resultList;
     }
 
     /**
@@ -210,8 +230,13 @@ public class SongDatabase {
      */
     public List<Song> findSongsByArtist(String artist) {
         // TODO FOR HOMEWORK: Remove the line below, and return a list of songs that match the given artist
-        return null;
-    }
+        List<Song> resultList = new ArrayList<>();
+        for (Song current : songArchive) {
+            if (current.getArtist().equals(artist)) {
+                resultList.add(current);
+            }
+        }
+        return resultList;    }
 
     /**
      * The main method of the Song Database class

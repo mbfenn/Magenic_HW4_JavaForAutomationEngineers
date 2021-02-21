@@ -1,41 +1,50 @@
 TODO HOMEWORK CHECKLIST:
 PROGRAMMING TASKS:
     SongDatabase.java
-        [ ] Complete the 'addSong' method
-        [ ] Throw an IllegalArgumentException when a playlist of the given name already exists in the 'createPlaylist' method
-        [ ] Complete the 'getPlaylist' method
-        [ ] Complete the 'addSongToPlaylist' method
-        [ ] Complete the 'findSongByName' method
-        [ ] Complete the 'findSongByArtist' method
+        [X] Complete the 'addSong' method
+        [X] Throw an IllegalArgumentException when a playlist of the given name already exists in the 'createPlaylist' method
+        [X] Complete the 'getPlaylist' method
+        [X] Complete the 'addSongToPlaylist' method
+        [X] Complete the 'findSongByName' method
+        [X] Complete the 'findSongByArtist' method
     MP3Player.java
-        [ ] Run the 'main' method and try multiple work flows
+        [X] Run the 'main' method and try multiple work flows
 
 TEST TASKS:
     SongDatabaseTest.java
-        [ ] Write the 'testAddDeleteSong' test method
-        [ ] Write the 'testAddGetDeletePlaylist' test method
-        [ ] Run every other test
+        [X] Write the 'testAddDeleteSong' test method
+        [X] Write the 'testAddGetDeletePlaylist' test method
+        [X] Run every other test
 
 SHORT ANSWERS:
     // TODO FOR HOMEWORK: Answer each question, and note many don't have a 'right answer' so just answer honestly
     [ ] The MP3Player is a console application, what features do you wish were added?
-        // ANSWER HERE:
+        // ANSWER HERE: A UI would be nice. Number-based menus are a pain.
+        Adding multiple songs to a playlist at once
+        In the "What playlist would you like to play" menu, let me pick the playlist from a list. I don't remember the exact names
+
 
     [ ] Pick any feature you mentioned in the last question. Do you think you could implement that feature with your current knowledge? If yes explain the basic thought processing of adding that feature, if not explain why.
-        // ANSWER HERE:
+        // ANSWER HERE: Listing out the playlist options would be doable, so long as the list of playlists wasn't too long for the console screen.
+         I would just essentially do the same as the menu that lists the playlists, and use the number input instead of taking text from the user
 
     [ ] What is a loop?
-        // ANSWER HERE:
+        // ANSWER HERE: An operation that iterates until a condition is met
 
     [ ] Write what each of these loops does in your own words:
-        // FOR LOOP:
-        // WHILE LOOP:
-        // DO WHILE:
+        // FOR LOOP: Opration that iterates that generally iterates a set number of times
+            Can interate over every item in a collection
+        // WHILE LOOP: Operation that iterates until a condition is met
+        // DO WHILE: Same as above, but will operation will execute once before going into the loop
 
     [ ] Why were 'infinite loops' used in this project? (See UserHelperMethods.displayOptionsAndWaitForValidOption(String[] options) for a reference)
-        // ANSWER HERE:
+        // ANSWER HERE: The menu was to iterate until the user decided to quit. It would be weird for a menu to
+        only work a set number of times
 
     [ ] This project has 3 packages (models, resources, and utils). Describe each one.
-        // MODELS:
-        // RESOURCES:
-        // UTILS:
+        // MODELS: contains the classes for the mp3 player, the song database, and the song classes.
+        These are the objects that the application will interact with.
+        // RESOURCES: This contains the OptionStrings, which are the different menu options when
+        running the mp3 application.
+        // UTILS: This contains UserHelperMethods, which are used by the application in the
+        mp3 player menu. It controls the menu flow as the user navigates through the console.
